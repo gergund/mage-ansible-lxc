@@ -1,0 +1,4 @@
+magento_user: apache
+memory_limit: 768M
+max_php-fpm_children: 8
+php-fpm_socket: 127.0.0.1

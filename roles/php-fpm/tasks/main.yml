@@ -34,3 +34,10 @@
    - php-process.x86_64
    - php-xml.x86_64
    - php-xmlrpc.x86_64
+
+- name: Configure and Restart PHP-FPM
+  copy: src=www.conf dest=/etc/php-fpm.d/www.conf
+  notify: restart php-fpm
+
+- name: PHP-FPM autostart
+  service: name=php-fpm state=started enabled=yes

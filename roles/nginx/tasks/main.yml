@@ -1,0 +1,7 @@
+- name: Copy the Nginx repository definition
+  copy: src=nginx.repo dest=/etc/yum.repos.d/
+
+- name: Install latest Nginx from official repo
+  yum: name={{ item }} state=present
+  with_items:
+        - nginx 

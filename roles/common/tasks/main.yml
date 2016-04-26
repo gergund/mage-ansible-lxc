@@ -1,0 +1,34 @@
+---
+
+- name: Copy the EPEL repository definition
+  copy: src=epel.repo dest=/etc/yum.repos.d/
+
+- name: Create the GPG key for EPEL
+  copy: src=RPM-GPG-KEY-EPEL-6 dest=/etc/pki/rpm-gpg
+  
+- name: Run yum upgrade for all packages
+  yum: name=* state=latest update_cache=yes
+
+- name: Install default set of software
+  yum: name={{ item }} state=present
+  with_items:
+   - mc
+   - atop
+   - htop
+   - tar
+   - sudo
+   - rsync
+   - git
+   - sysstat
+   - strace
+   - tcpdump
+   - nc
+   - fabric
+
+- name: Install SSH key for jenkins
+  authorized_key:
+    user: jenkins
+    key: "{{ lookup('file', '../files/jenkins-rsa.pub') }}"
+    #key: "{{ lookup('file', '/home/jenkins/.ssh/id_rsa.pub') }}"
+    state: present
+

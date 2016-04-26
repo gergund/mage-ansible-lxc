@@ -1,0 +1,13 @@
+[lb]
+kipling-web01
+[app]
+kipling-web01
+[db]
+kipling-mysql01
+[cache]
+kipling-axu01
+[solr]
+kipling-axu01
+[nfs]
+kipling-axu01
+

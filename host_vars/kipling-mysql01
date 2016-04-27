@@ -1,1 +1,2 @@
 mysql_server_id: 11
+mysql_root_password: password

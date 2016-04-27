@@ -30,6 +30,9 @@
 - name: Set .my.cnf for root
   template: src=.my.cnf.j2 dest=/root/.my.cnf
 
+- name: Set .my.cnf for jenkins
+  template: src=.my.cnf.j2 dest=/home/jenkins/.my.cnf
+
 - name: Delete anonymous MySQL server user for {{ inventory_hostname }}
   mysql_user: user="" host="{{ inventory_hostname }}" state="absent" login_user="root" login_password="{{ mysql_root_password }}"
 

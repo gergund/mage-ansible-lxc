@@ -10,9 +10,11 @@
         - common
         - nginx
         - php-fpm
+        - magento-app
 
 - name: Installing MySQL
   hosts: kipling-mysql01
   roles:
         - common
-        - mysql    
+        - mysql
+        - magento-db 

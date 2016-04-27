@@ -1,0 +1,21 @@
+magento_user: apache
+
+php_max_execution_time: 600
+php_memory_limit: 768M
+php_error_reporting: On
+php_display_errors: Off
+php_log_errors: On
+php_post_max_size: 16M
+php_upload_max_filesize: 16M
+
+php_pm: static
+php_max_children: 8
+php_fpm_socket: /var/run/php-fpm.sock
+
+vhost_listen_port: 80
+vhost_server_name: m2.magento.loc
+vhost_document_root: /var/www/magento
+
+magento_db_name: magento
+magento_db_user: magento
+magento_db_password: magento

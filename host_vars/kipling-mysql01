@@ -1,2 +1,6 @@
 mysql_server_id: 11
 mysql_root_password: password
+
+magento_db_name: magento
+magento_db_user: magento
+magento_db_password: magento

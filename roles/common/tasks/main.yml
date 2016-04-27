@@ -8,6 +8,8 @@
   
 - name: Run yum upgrade for all packages
   yum: name=* state=latest update_cache=yes
+  when:
+        update_packages == True
 
 - name: Install default set of software
   yum: name={{ item }} state=present

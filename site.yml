@@ -11,8 +11,8 @@
         - nginx
         - php-fpm
 
-#- name: Installing MySQL
-#  hosts: kipling-mysql01
-#  roles:
-#        - common
-#        - mysql    
+- name: Installing MySQL
+  hosts: kipling-mysql01
+  roles:
+        - common
+        - mysql    

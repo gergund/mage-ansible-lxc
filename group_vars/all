@@ -1,4 +1,15 @@
+update_packages: False
+
 magento_user: apache
-memory_limit: 768M
-max_php-fpm_children: 8
-php-fpm_socket: 127.0.0.1
+
+php_max_execution_time: 600
+php_memory_limit: 768M
+php_error_reporting: On
+php_display_errors: Off
+php_log_errors: On
+php_post_max_size: 16M
+php_upload_max_filesize: 16M
+
+php_pm: static
+php_max_children: 8
+php_fpm_socket: /var/run/php-fpm.sock

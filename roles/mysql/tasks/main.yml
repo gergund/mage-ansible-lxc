@@ -1,0 +1,23 @@
+---
+
+- name: Copy the Percona repository definition
+  copy: src=percona-release.repo dest=/etc/yum.repos.d/
+
+- name: Create the GPG key for EPEL
+  copy: src=RPM-GPG-KEY-Percona dest=/etc/pki/rpm-gpg
+
+- name: Install default set of software
+  yum: name={{ item }} state=present
+  with_items:
+   - Percona-Server-server-56.x86_64
+   - Percona-Server-shared-56.x86_64
+   - Percona-Server-client-56.x86_64
+   - percona-toolkit.noarch
+   - percona-xtrabackup.x86_64
+
+- name: Configure and Restart MySQL
+  template: src=my.cnf.j2 dest=/etc/my.cnf
+  notify: restart mysql
+
+- name: MySQL autostart
+  service: name=mysql state=started enabled=yes

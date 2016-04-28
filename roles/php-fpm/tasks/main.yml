@@ -10,8 +10,8 @@
 - name: Create the GPG key for Remi
   copy: src=RPM-GPG-KEY-remi dest=/etc/pki/rpm-gpg
 
-- name: Install default PHP-7.0 set
-  yum: name={{ item }} enablerepo=remi-php70 state=present
+- name: Install default PHP set
+  yum: name={{ item }} enablerepo=remi-php56 state=present
   with_items:
    - php.x86_64
    - php-bcmath.x86_64
@@ -21,7 +21,6 @@
    - php-gd.x86_64
    - php-gmp.x86_64
    - php-intl.x86_64
-   - php-json.x86_64
    - php-mbstring.x86_64
    - php-mcrypt.x86_64
    - php-mysqlnd.x86_64

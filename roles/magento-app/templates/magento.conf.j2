@@ -1,5 +1,5 @@
 upstream fastcgi {
-    server unix:{{ php_fpm_socket  }};
+    server {{ php_fpm_socket  }};
 }
 
 server {
@@ -48,7 +48,7 @@ server {
         fastcgi_temp_file_write_size 256k;
         fastcgi_intercept_errors off;
 
-        #fastcgi_next_upstream error timeout http_500;
+        fastcgi_next_upstream error timeout http_500;
         fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
         #fastcgi_param  MAGE_RUN_CODE store_view_1_w_1_g_1;
         #fastcgi_param  MAGE_RUN_TYPE store;

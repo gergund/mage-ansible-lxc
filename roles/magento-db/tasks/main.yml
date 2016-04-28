@@ -3,6 +3,9 @@
 - name: Create Magento MySQL user
   mysql_user: name={{ magento_db_user }} password={{ magento_db_password }} priv={{ magento_db_name  }}.*:ALL,GRANT host="%"
 
+- name: Set SUPER privileges
+  mysql_user: name={{ magento_db_user }} password={{ magento_db_password }} append_privs=yes  priv=*.*:SUPER,GRANT host="%"
+  
 - name: Create Magento Database
   mysql_db: name={{ magento_db_name  }} state=present
   ignore_errors: yes

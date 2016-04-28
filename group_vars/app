@@ -10,11 +10,11 @@ php_upload_max_filesize: 16M
 
 php_pm: static
 php_max_children: 8
-php_fpm_socket: /var/run/php-fpm.sock
+php_fpm_socket: 127.0.0.1:9000
 
 vhost_listen_port: 80
 vhost_server_name: m2.magento.loc
-vhost_document_root: /var/www/magento
+vhost_document_root: /var/www/deploy/current
 
 magento_db_name: magento
 magento_db_user: magento

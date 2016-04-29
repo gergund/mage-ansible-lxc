@@ -9,20 +9,28 @@ server {
     root   {{ vhost_document_root  }};
     access_log  /var/log/nginx/magento-access.log  main;
 
+    set $ssl "off";
+    if ($http_x_forwarded_proto = "https") {
+        set $ssl "on";
+    }
+
     location / {
         index  index.php;
         try_files $uri $uri/ @handler;
          expires 1h;
     }
+    
+    location ~ /(media|skin|js) {
+        try_files $uri =404;
+    }
 
-    ## These locations would be hidden by .htaccess normally
-    location ^~ /app/                { deny all; }
-    location ^~ /includes/           { deny all; }
-    location ^~ /lib/                { deny all; }
-    location ^~ /media/downloadable/ { deny all; }
-    location ^~ /pkginfo/            { deny all; }
-    location ^~ /report/config.xml   { deny all; }
-    location ^~ /var/                { deny all; }
+    location ~ /(app|includes|lib|pkginfo|report|var|shell|downloadable|customer|.git|.svn) {
+         deny all;
+    }
+
+    location ~* ^.+.(xml|phtml|ini|git|svn|.hta.+) {
+        deny all;
+    }
 
     location @handler {
         rewrite / /index.php;

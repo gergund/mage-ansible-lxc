@@ -1,5 +1,3 @@
-magento_user: apache
-
 php_max_execution_time: 600
 php_memory_limit: 768M
 php_error_reporting: On
@@ -16,6 +14,26 @@ vhost_listen_port: 80
 vhost_server_name: m2.magento.loc
 vhost_document_root: /var/www/deploy/current
 
+magento_db_host: kipling-mysql01
 magento_db_name: magento
 magento_db_user: magento
 magento_db_password: magento
+magento_db_prefix: magento_
+
+magento_user: apache
+magento_skip_url_validation: yes
+magento_locale: en_US
+magento_timezone: "America/Los_Angeles"
+magento_currency: USD
+magento_baseurl: "http://m2.magento.loc"
+magento_rewrites: yes
+magento_secure: no
+magento_secure_baseurl: "http://m2.magento.loc"
+magento_secure_admin: yes
+magento_admin_lastname: admin
+magento_admin_firstname: admin
+magento_admin_email: dgergun@magento.com
+magento_admin_username: admin
+magento_admin_password: 123123qa
+magento_encryption_key: ""
+

@@ -5,7 +5,7 @@
         - common
 
 - name: Installing Nginx + PHP-FPM
-  hosts: kipling-web01
+  hosts: web02
   roles:
         - common
         - nginx

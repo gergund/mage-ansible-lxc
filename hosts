@@ -1,7 +1,7 @@
 [lb]
-kipling-web01
+web02
 [app]
-kipling-web01
+web02
 [db]
 kipling-mysql01
 [cache]

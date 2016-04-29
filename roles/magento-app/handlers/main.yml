@@ -1,3 +1,6 @@
 ---
 - name: restart nginx
   service: name=nginx state=restarted enabled=yes
+
+- name:  install magento
+  shell: /var/www/deploy/current/install_magento.sh && rm -Rf /var/www/deploy/current/install_magento.sh

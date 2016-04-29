@@ -2,7 +2,7 @@ from fabric.api import *
 from fabric.contrib.files import *
 
 env.hosts = [
-    'kipling-web01',
+    'web02',
 ]
 
 # Set the username
